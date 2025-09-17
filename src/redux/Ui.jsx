@@ -7,7 +7,7 @@ function Ui() {
   const { loading, posts, error } = useSelector((state) => state);
   const dispatch = useDispatch();
   useEffect(() => {
-    fetchPosts();
+    dispatch(fetchPosts());
   },[dispatch]);
 
   if (loading)return <div>Loading...</div>;
@@ -15,7 +15,7 @@ function Ui() {
   return (
     <div>
       {posts.map((x) => {
-        return <div key={posts.id}>{posts.title}</div>;
+        return <div key={x.id}>{x.title}</div>;
       })}
     </div>
   );
